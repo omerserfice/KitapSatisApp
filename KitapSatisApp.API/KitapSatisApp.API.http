@@ -1,0 +1,6 @@
+@KitapSatisApp.API_HostAddress = http://localhost:5263
+
+GET {{KitapSatisApp.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
