@@ -37,10 +37,6 @@ namespace KitapSatisApp.Application.Features.Books
 		public async Task DeleteAsync(int id)
 		{
 			var book = await bookRepository.GetByIdAsync(id);
-			if (book is null)
-			{
-				throw new Exception("Bu id'ye sahip kitap bulunamadı.");
-			}
 			bookRepository.Delete(book!);
 			await unitOfWork.SaveChangesAsync();
 			return;
@@ -48,12 +44,12 @@ namespace KitapSatisApp.Application.Features.Books
 
 		public async Task<List<BookDto>> GetAllAsyncList()
 		{
-			var books = await bookRepository.GetAllAsync();
+			var books = await bookRepository.GetAllAsync("Category");
 			if (books is null)
 			{
 				throw new Exception("Veritabanında kitap bulunamadı.");
 			}
-			var booksDto = mapper.Map<List<BookDto>>(books.ToList());
+			var booksDto = mapper.Map<List<BookDto>>(books);
 			return booksDto;
 
 		}
@@ -67,13 +63,10 @@ namespace KitapSatisApp.Application.Features.Books
 
 		public async Task UpdateAsync(int id, UpdateBookRequest request)
 		{
-			 var isBookExist = await bookRepository.AnyAsync(x => x.BookName == request.BookName && x.Id == id);
+			 var bookResponse = await bookRepository.AnyAsync(x => x.BookName == request.BookName && x.Id == id);
 
-			 if (isBookExist)
-			 {
-				 throw new Exception("Kitap bulunamadı.");
-			}
-			 var book = mapper.Map<Book>(request);
+
+		    var book = mapper.Map<Book>(request);
 			book.Id = id;
 			bookRepository.Update(book);
 			await unitOfWork.SaveChangesAsync();

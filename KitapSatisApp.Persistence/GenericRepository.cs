@@ -22,6 +22,15 @@ namespace KitapSatisApp.Persistence
 		public void Delete(T entity) => _dbSet.Remove(entity);
 
 		public Task<List<T>> GetAllAsync() => _dbSet.ToListAsync();
+		public Task<List<T>> GetAllAsync(params string[] includes)
+		{
+			IQueryable<T> query = _dbSet;
+			foreach (string include in includes)
+			{
+				query = query.Include(include);
+			}
+			return query.ToListAsync();
+		}
 
 		public ValueTask<T?> GetByIdAsync(TId id) => _dbSet.FindAsync(id);
 

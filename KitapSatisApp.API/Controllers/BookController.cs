@@ -2,11 +2,13 @@
 using KitapSatisApp.Application.Features.Books;
 using KitapSatisApp.Application.Features.Books.Create;
 using KitapSatisApp.Application.Features.Books.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace KitapSatisApp.API.Controllers
 {
+	[Authorize]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class BookController(IBookService bookService) : ControllerBase
@@ -48,8 +50,13 @@ namespace KitapSatisApp.API.Controllers
 		[HttpDelete("{id:int}")]
 		public async Task<IActionResult> DeleteAsync(int id)
 		{
-			
-				await bookService.DeleteAsync(id);
+			var book = await bookService.GetByIdAsync(id);
+			if (book is null)
+			{
+				throw new BookNotFoundException(id);
+			}
+
+			await bookService.DeleteAsync(id);
 				return NoContent();
 			
 		}

@@ -15,7 +15,12 @@ namespace KitapSatisApp.Persistence.Books
 			builder.Property(b => b.BookName).IsRequired().HasMaxLength(100);
 			builder.Property(b => b.Price).IsRequired().HasColumnType("decimal(18,2)");
 			builder.Property(b => b.Writer).IsRequired().HasMaxLength(100);
-			builder.Property(b => b.PublicationYear).IsRequired();
+			builder.Property(b => b.PublicationYear).IsRequired().HasMaxLength(4);
+
+			builder.HasOne(b => b.Category)
+				.WithMany(c => c.Books)
+				.HasForeignKey(b => b.CategoryId)
+				.OnDelete(DeleteBehavior.Cascade);
 		}
 	}
 }

@@ -11,8 +11,9 @@ namespace KitapSatisApp.Application.Features.Books
 	{
 		public BookMappingProfile() {
 
-			
-			CreateMap<Book, BookDto>().ReverseMap();
+			CreateMap<Book, BookDto>()
+				.ForMember(dest => dest.CategoryName,
+			opt => opt.MapFrom(src => src.Category != null ? src.Category.CategoryName : string.Empty));
 			CreateMap<CreateBookRequest, Book>();
 			CreateMap<UpdateBookRequest, Book>();
 		}

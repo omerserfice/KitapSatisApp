@@ -4,7 +4,7 @@ namespace KitapSatisApp.Application.Features.Auth
 {
 	public interface IAuthService
 	{
-		Task<bool> RegisterAsync(RegisterRequestDto request);
+		Task<AuthRegisterResponse> RegisterAsync(RegisterRequestDto request);
 		Task<AuthLoginResponse> LoginAsync(LoginRequestDto request);
 	}
 }
