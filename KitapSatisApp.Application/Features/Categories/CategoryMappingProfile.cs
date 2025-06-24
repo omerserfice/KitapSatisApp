@@ -1,7 +1,4 @@
 ﻿using AutoMapper;
-using KitapSatisApp.Application.Features.Books.Create;
-using KitapSatisApp.Application.Features.Books.Dto;
-using KitapSatisApp.Application.Features.Books.Update;
 using KitapSatisApp.Application.Features.Categories.Create;
 using KitapSatisApp.Application.Features.Categories.Dto;
 using KitapSatisApp.Application.Features.Categories.Update;

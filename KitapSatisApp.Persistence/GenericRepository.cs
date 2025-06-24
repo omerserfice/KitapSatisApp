@@ -1,5 +1,4 @@
-﻿
-using KitapSatisApp.Application.Contracts;
+﻿using KitapSatisApp.Application.Contracts;
 using KitapSatisApp.Domain.Entites.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

@@ -3,7 +3,6 @@ using KitapSatisApp.Application.Features.Categories;
 using KitapSatisApp.Application.Features.Categories.Create;
 using KitapSatisApp.Application.Features.Categories.Update;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KitapSatisApp.API.Controllers

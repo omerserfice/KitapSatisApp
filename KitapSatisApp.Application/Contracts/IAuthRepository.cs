@@ -1,5 +1,4 @@
-﻿
-using KitapSatisApp.Domain.Entites;
+﻿using KitapSatisApp.Domain.Entites;
 
 namespace KitapSatisApp.Application.Contracts
 {

@@ -1,6 +1,4 @@
-﻿
-
-namespace KitapSatisApp.Application.Features.Books.Update
+﻿namespace KitapSatisApp.Application.Features.Books.Update
 {
 	public record UpdateBookResponse(int Id, string BookName, int StatusCode, string Message);
 }

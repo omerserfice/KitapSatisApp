@@ -1,6 +1,4 @@
-﻿
-
-using KitapSatisApp.Domain.Entites.Common;
+﻿using KitapSatisApp.Domain.Entites.Common;
 
 namespace KitapSatisApp.Domain.Entites
 {

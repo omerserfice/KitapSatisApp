@@ -1,6 +1,5 @@
 ﻿
 using KitapSatisApp.Domain.Entites;
-using System.Linq.Expressions;
 
 namespace KitapSatisApp.Application.Contracts
 {
