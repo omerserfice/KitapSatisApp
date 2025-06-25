@@ -43,6 +43,7 @@ http://localhost:5263/swagger/index.html
     -  Global Hata Yönetimi
 - DTO & AutoMapper
     - Entityler ile DTO lar arası dönüşüm
+- Repository Pattern
 -  Swagger UI
 ## Proje Yapısı
 ```
@@ -71,7 +72,7 @@ Bearer {token}
 ## Notlar
 
 - Proje geliştirme süresi: **3 gün**
-- Uygulama .NET Core 8 ve Clean Architecture mimarisi prensipleri ile geliştirilmiştir
+- Uygulama .NET Core 8 ve Clean Architecture mimarisi Repository pattern prensipleri ile geliştirilmiştir
 - Değerlendirme amaçlı kullanıcı yönetimi ve kitap işlemleri yapılmıştır.
 
 ## Geliştirici
