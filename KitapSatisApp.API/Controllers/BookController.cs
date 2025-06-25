@@ -1,4 +1,4 @@
-﻿using KitapSatisApp.API.ExceptionHandler;
+﻿using KitapSatisApp.API.ExceptionHandler.NotFound;
 using KitapSatisApp.Application.Features.Books;
 using KitapSatisApp.Application.Features.Books.Create;
 using KitapSatisApp.Application.Features.Books.Update;
@@ -18,6 +18,10 @@ namespace KitapSatisApp.API.Controllers
 		{
 			
 			var books = await bookService.GetAllAsyncList();
+			if (books is null || !books.Any())
+			{
+				throw new BooksNotFoundException();
+			}
 			return Ok(books);
 		}
 

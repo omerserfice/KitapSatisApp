@@ -1,4 +1,4 @@
-﻿namespace KitapSatisApp.API.ExceptionHandler
+﻿namespace KitapSatisApp.API.ExceptionHandler.NotFound
 {
 	public sealed class CategoryNotFoundException : NotFoundException
 	{

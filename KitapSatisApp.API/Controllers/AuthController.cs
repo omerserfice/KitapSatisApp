@@ -24,10 +24,6 @@ namespace KitapSatisApp.API.Controllers
 		public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
 		{
 			var response = await authService.LoginAsync(request);
-			if (response is null)
-			{
-				return Unauthorized(response.Message);
-			}
 			return Ok(response);
 		}
 	}

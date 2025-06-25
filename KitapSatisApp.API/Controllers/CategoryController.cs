@@ -1,4 +1,4 @@
-﻿using KitapSatisApp.API.ExceptionHandler;
+﻿using KitapSatisApp.API.ExceptionHandler.NotFound;
 using KitapSatisApp.Application.Features.Categories;
 using KitapSatisApp.Application.Features.Categories.Create;
 using KitapSatisApp.Application.Features.Categories.Update;
@@ -16,6 +16,11 @@ namespace KitapSatisApp.API.Controllers
 		public async Task<IActionResult> GetAllAsync()
 		{
 			var categories = await categoryService.GetAllAsyncList();
+			if (categories is null || !categories.Any())
+			{
+				throw new CategoriesNotFoundException();
+			}
+
 			return Ok(categories);
 		}
 		[HttpGet("{id:int}")]

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KitapSatisApp.Persistence.Migrations
 {
     [DbContext(typeof(KitapSatisDbContext))]
-    [Migration("20250624193250_init")]
+    [Migration("20250625141610_init")]
     partial class init
     {
         /// <inheritdoc />
