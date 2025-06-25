@@ -9,6 +9,7 @@ Bu proje .Net Core 8 Web API ile geliştirilen RESTful api uygulamasıdır.Uygul
 - JWT Authentication
 - Swagger UI
 - Clean Architecture yaklaşımı
+- Veritabanı : MSSQL (Code First) yaklaşımı
 
 ### 1. Projeyi Klonlayın
 
